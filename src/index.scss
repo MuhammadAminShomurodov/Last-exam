@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Roboto";
+  src: url(../src/assets/fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url(../src/assets/fonts/Montserrat-Regular.ttf);
+}
+
+body {
+  background-color: #000000ee;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1272px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

@@ -1,0 +1,198 @@
+.Currancy {
+  .currancy-text {
+    h2 {
+      font-family: Montserrat;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 41.99px;
+      letter-spacing: 0.25px;
+      text-align: center;
+      color: #ffffff;
+      padding-top: 18px;
+      padding-bottom: 13px;
+    }
+    input {
+      font-family: Roboto;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0.15000000596046448px;
+      color: #ffffffb2;
+      background: none;
+      border: 1px solid #ffffff3b;
+      border-radius: 4px;
+      width: 1232px;
+      padding-top: 25px;
+      padding-bottom: 20px;
+      padding-left: 14px;
+    }
+  }
+  .crypto-table {
+    margin-top: 20px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      background-color: #2a2a2a;
+      border-radius: 10px;
+      overflow: hidden;
+
+      thead {
+        background-color: #87ceeb;
+        color: #fff;
+
+        th {
+          font-family: Montserrat;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 24px;
+          letter-spacing: 0.15000000596046448px;
+          text-align: left;
+          color: #000000;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          padding-left: 16px;
+        }
+      }
+
+      tbody {
+        background-color: #0000008f;
+        cursor: pointer;
+
+        tr {
+          &:hover {
+            background-color: #444;
+          }
+
+          td {
+            padding: 15px;
+            border-bottom: 1px solid #444;
+
+            &.crypto-name {
+              display: flex;
+              align-items: center;
+              img {
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+              }
+              .symbol {
+                font-family: Roboto;
+                font-size: 22px;
+                font-weight: 400;
+                line-height: 31.46px;
+                letter-spacing: 0.15000000596046448px;
+                text-align: left;
+                color: #ffffff;
+              }
+              .name {
+                font-family: Roboto;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 20.02px;
+                letter-spacing: 0.15000000596046448px;
+                text-align: left;
+                color: #a9a9a9;
+              }
+            }
+
+            &.crypto-price {
+              font-family: Roboto;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 20.02px;
+              letter-spacing: 0.15000000596046448px;
+              color: #ffffff;
+            }
+
+            &.crypto-market-cap {
+              font-family: Roboto;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 20.02px;
+              letter-spacing: 0.15000000596046448px;
+              color: #ffffff;
+            }
+
+            &.positive {
+              font-family: Roboto;
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 20.02px;
+              letter-spacing: 0.15000000596046448px;
+
+              color: #4caf50;
+              .change-icon {
+                margin-right: 5px;
+              }
+            }
+
+            &.negative {
+              font-family: Roboto;
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 20.02px;
+              letter-spacing: 0.15000000596046448px;
+              color: #f44336;
+              .change-icon {
+                margin-right: 5px;
+              }
+            }
+          }
+
+          &:last-child td {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    .pagination-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 20px;
+
+      .ant-pagination {
+        .ant-pagination-item {
+          background-color: #2a2a2a;
+          border: 1px solid #444;
+          color: #ffffff;
+
+          &:hover {
+            background-color: #444;
+          }
+
+          &.ant-pagination-item-active {
+            background-color: #87ceeb;
+            border-color: #87ceeb;
+            color: #000;
+          }
+        }
+
+        .ant-pagination-prev,
+        .ant-pagination-next {
+          .ant-pagination-item-link {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: #ffffff;
+
+            &:hover {
+              background-color: #444;
+            }
+          }
+        }
+
+        .ant-select {
+          .ant-select-selector {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}

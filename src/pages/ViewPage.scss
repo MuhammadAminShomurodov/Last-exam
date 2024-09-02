@@ -1,0 +1,102 @@
+.view-page {
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  padding: 20px;
+  background-color: #0f0f0f;
+  min-height: 100vh;
+
+  .crypto-info {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .crypto-logo {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+    }
+
+    .crypto-name {
+      font-family: Montserrat;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 56.02px;
+      margin-bottom: 20px;
+      text-align: left;
+      color: #ffffff;
+    }
+
+    .crypto-description {
+      font-family: Montserrat;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 28px;
+      letter-spacing: 0.15000000596046448px;
+      text-align: left;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .crypto-rank,
+    .crypto-price,
+    .crypto-market-cap {
+      font-family: Montserrat;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.02px;
+      text-align: left;
+      color: #ffffff;
+    }
+  }
+
+  .crypto-chart {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .crypto-chart-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+  }
+
+  .chart-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.5px;
+    text-align: left;
+    color: #ffffff;
+    .timeframe-btn {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #555;
+      }
+
+      &.active {
+        background-color: #87CEEB; 
+      }
+    }
+  }
+}
