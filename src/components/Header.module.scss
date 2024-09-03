@@ -1,0 +1,163 @@
+.Header {
+  .header-all {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+
+    .header-left {
+      h1 {
+        font-family: Montserrat, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 32px;
+        letter-spacing: 0.15px;
+        text-align: left;
+        color: #87ceeb;
+      }
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+
+      select {
+        background: none;
+        border: none;
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 19px;
+        letter-spacing: 0.15px;
+        text-align: left;
+        color: #ffffff;
+        padding: 0.5rem;
+        margin-right: 14px;
+        outline: none;
+        cursor: pointer;
+
+        option {
+          background: #000000ee;
+        }
+      }
+
+      button {
+        font-family: Roboto, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24.5px;
+        letter-spacing: 0.4px;
+        text-align: center;
+        color: #000000de;
+        background: #87ceeb;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 19px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #76b4e6;
+        }
+      }
+    }
+  }
+}
+
+.Sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #0000009f;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  z-index: 1000;
+
+  &.visible {
+    transform: translateX(0);
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #beb5b5;
+    }
+  }
+
+  h3 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: Roboto, sans-serif;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+
+      .crypto-name {
+        display: flex;
+        align-items: center;
+        font-family: Roboto, sans-serif;
+
+        img {
+          width: 30px;
+          height: 30px;
+          margin-right: 0.5rem;
+        }
+
+        .symbol {
+          margin: 0;
+          font-weight: 500;
+        }
+
+        .name {
+          margin: 0;
+          font-size: 0.9rem;
+          color: #555;
+        }
+      }
+
+      button {
+        padding: 0.25rem 0.5rem;
+        border: none;
+        border-radius: 4px;
+        background-color: #dc3545;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #c82333;
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    color: #666;
+  }
+}

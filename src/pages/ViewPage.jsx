@@ -47,7 +47,7 @@ const ViewPage = () => {
         );
 
         const prices = response.data.prices.map((price) => ({
-          time: new Date(price[0]).toLocaleString(), 
+          time: new Date(price[0]).toLocaleString(),
           value: price[1],
         }));
         setChartData(prices);
@@ -103,11 +103,11 @@ const ViewPage = () => {
           <strong>Rank:</strong> {crypto.market_cap_rank}
         </p>
         <p className="crypto-price">
-          <strong>Current Price:</strong>  ₹
+          <strong>Current Price:</strong> ₹
           {crypto.market_data.current_price.inr.toLocaleString()}
         </p>
         <p className="crypto-market-cap">
-          <strong>Market Cap:</strong>  ₹
+          <strong>Market Cap:</strong> ₹
           {(crypto.market_data.market_cap.inr / 1_000_000).toLocaleString()}M
         </p>
       </div>
@@ -115,28 +115,16 @@ const ViewPage = () => {
         <Line {...config} />
       </div>
       <div className="chart-buttons">
-        <button
-          className="timeframe-btn"
-          onClick={() => setTimeframe("24h")}
-        >
+        <button className="timeframe-btn" onClick={() => setTimeframe("24h")}>
           24 Hours
         </button>
-        <button
-          className="timeframe-btn"
-          onClick={() => setTimeframe("30d")}
-        >
+        <button className="timeframe-btn" onClick={() => setTimeframe("30d")}>
           30 Days
         </button>
-        <button
-          className="timeframe-btn"
-          onClick={() => setTimeframe("3m")}
-        >
+        <button className="timeframe-btn" onClick={() => setTimeframe("3m")}>
           3 Months
         </button>
-        <button
-          className="timeframe-btn"
-          onClick={() => setTimeframe("1y")}
-        >
+        <button className="timeframe-btn" onClick={() => setTimeframe("1y")}>
           1 Year
         </button>
       </div>
