@@ -3,7 +3,7 @@ import axios from "axios";
 import { Pagination } from "antd";
 import { useNavigate } from "react-router-dom";
 import { CurrencyContext } from "../context/CurrencyContext";
-import { AiOutlinePlus } from "react-icons/ai"; // Importing the icon
+import { AiOutlinePlus } from "react-icons/ai";
 import "./Currancy.scss";
 
 const Currancy = () => {
@@ -48,7 +48,7 @@ const Currancy = () => {
   const currencySymbols = {
     USD: "$",
     RUB: "₽",
-    UZB: "so'm", // Replace with the actual symbol if necessary
+    UZS: "so'm",
   };
 
   return (
@@ -117,7 +117,7 @@ const Currancy = () => {
                         addToWatchList(crypto);
                       }}
                     >
-                      <AiOutlinePlus size={20} /> {/* Icon used here */}
+                      <AiOutlinePlus size={20} />
                     </button>
                   </td>
                 </tr>
