@@ -1,4 +1,4 @@
-import  { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { CurrencyContext } from "../context/CurrencyContext";
 import styles from "./Header.module.scss";
 
@@ -22,7 +22,7 @@ const Header = () => {
             <select value={currency} onChange={handleCurrencyChange}>
               <option value="USD">USD</option>
               <option value="RUB">RUB</option>
-              <option value="UZB">UZB</option>
+              <option value="UZS">UZS</option>
             </select>
             <button onClick={() => setShowSidebar(!showSidebar)}>
               WATCH LIST
