@@ -3,7 +3,7 @@ import axios from "axios";
 import { Pagination } from "antd";
 import { useNavigate } from "react-router-dom";
 import { CurrencyContext } from "../context/CurrencyContext";
-import { AiOutlinePlus } from "react-icons/ai";
+import { AiOutlineEye } from "react-icons/ai"; 
 import "./Currancy.scss";
 
 const Currancy = () => {
@@ -116,8 +116,9 @@ const Currancy = () => {
                         e.stopPropagation();
                         addToWatchList(crypto);
                       }}
+                      className="move"
                     >
-                      <AiOutlinePlus size={20} />
+                      <AiOutlineEye size={20} />
                     </button>
                   </td>
                 </tr>

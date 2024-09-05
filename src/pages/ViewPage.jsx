@@ -1,11 +1,13 @@
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import axios from "axios";
 import { Line } from "@ant-design/charts";
+import { CurrencyContext } from "../context/CurrencyContext";
 import "./ViewPage.scss";
 
 const ViewPage = () => {
   const { id } = useParams();
+  const { currency } = useContext(CurrencyContext); // Access selected currency
   const [crypto, setCrypto] = useState(null);
   const [chartData, setChartData] = useState([]);
   const [timeframe, setTimeframe] = useState("24h");
@@ -43,7 +45,7 @@ const ViewPage = () => {
 
       try {
         const response = await axios.get(
-          `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=inr&days=${days}`
+          `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency.toLowerCase()}&days=${days}`
         );
 
         const prices = response.data.prices.map((price) => ({
@@ -57,10 +59,17 @@ const ViewPage = () => {
     };
 
     fetchChartData();
-  }, [id, timeframe]);
+  }, [id, timeframe, currency]);
 
   if (!crypto) return <div>Loading...</div>;
 
+  const currencySymbols = {
+    USD: "$",
+    RUB: "₽",
+    UZS: "so'm",
+  };
+
+  // Define the config object here
   const config = {
     data: chartData,
     height: 400,
@@ -91,24 +100,24 @@ const ViewPage = () => {
     <div className="view-page">
       <div className="crypto-info">
         <img
-          src={crypto.image.large}
+          src={crypto.image?.large}
           alt={crypto.name}
           className="crypto-logo"
         />
         <h1 className="crypto-name">{crypto.name}</h1>
         <p className="crypto-description">
-          {crypto.description.en.split(".")[0]}.
+          {crypto.description?.en?.split(".")[0]}.
         </p>
         <p className="crypto-rank">
           <strong>Rank:</strong> {crypto.market_cap_rank}
         </p>
         <p className="crypto-price">
-          <strong>Current Price:</strong> ₹
-          {crypto.market_data.current_price.inr.toLocaleString()}
+          <strong>Current Price:</strong> {currencySymbols[currency]}
+          {crypto.market_data?.current_price?.[currency.toLowerCase()]?.toLocaleString() || "Data not available"}
         </p>
         <p className="crypto-market-cap">
-          <strong>Market Cap:</strong> ₹
-          {(crypto.market_data.market_cap.inr / 1_000_000).toLocaleString()}M
+          <strong>Market Cap:</strong> {currencySymbols[currency]}
+          {(crypto.market_data?.market_cap?.[currency.toLowerCase()] / 1_000_000)?.toLocaleString() || "Data not available"}M
         </p>
       </div>
       <div className="crypto-chart">

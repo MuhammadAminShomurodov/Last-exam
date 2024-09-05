@@ -1,15 +1,19 @@
 .AllBg {
   background-image: url(../assets/images/background.jpg);
+  background-size: cover;
   width: 100%;
+  padding: 40px 0;
+
   .AllPages {
     .background {
+      text-align: center;
+
       h2 {
         font-family: Montserrat;
         font-size: 60px;
         font-weight: 700;
         line-height: 72px;
         letter-spacing: -0.5px;
-        text-align: center;
         color: #87ceeb;
         padding-top: 69px;
       }
@@ -18,51 +22,92 @@
         font-family: Montserrat;
         font-size: 14px;
         font-weight: 500;
-        line-height: 21.98px;
-        letter-spacing: 0.10000000149011612px;
-        text-align: center;
+        line-height: 22px;
+        letter-spacing: 0.1px;
         color: #a9a9a9;
         padding-bottom: 69px;
       }
-      .crypto-list {
-        display: flex;
-        justify-content: space-around;
+
+      .crypto-item {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        color: white;
+
+        .crypto-image {
+          width: 50px;
+          margin: 0 auto;
+          height: 50px;
+          margin-bottom: 10px;
+        }
+
+        .symbol {
+          font-family: Roboto;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 18.75px;
+          text-align: center;
+          color: #ffffff;
+          margin-bottom: 10px;
+
+          span {
+            font-family: Roboto;
+            font-size: 15.75px;
+            font-weight: 500;
+            line-height: 18.46px;
+            text-align: center;
+            color: #0ecb81; /* Green color for positive change */
+            padding-left: 5px;
+          }
+        }
+
+        .price {
+          font-family: Roboto;
+          font-size: 21.83px;
+          font-weight: 500;
+          line-height: 25.58px;
+          color: #ffffff;
+        }
+      }
+
+      .slick-slider {
         margin-top: 20px;
 
-        .crypto-item {
-          text-align: center;
-          color: white;
+        .slick-prev,
+        .slick-next {
+          z-index: 1;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #87ceeb;
+          &:hover {
+            background-color: #1e90ff;
+          }
 
-          img {
-            width: 50px;
-            height: 50px;
-          }
-          .symbol {
-            font-family: Roboto;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 18.75px;
-            text-align: left;
+          &:before {
+            font-size: 24px;
             color: #ffffff;
-            padding-top: 10px;
-            span {
-              font-family: Roboto;
-              font-size: 15.75px;
-              font-weight: 500;
-              line-height: 18.46px;
-              text-align: left;
-              color: #0ecb81;
-              padding-left: 5px;
-            }
           }
-          .price {
-            font-family: Roboto;
-            font-size: 21.83px;
-            font-weight: 500;
-            line-height: 25.58px;
-            text-align: left;
+        }
+
+        .slick-prev:before {
+          content: "←";
+        }
+
+        .slick-next:before {
+          content: "→";
+        }
+
+        .slick-dots {
+          bottom: -25px;
+          li button:before {
             color: #ffffff;
-            padding-bottom: 38px;
+            font-size: 12px;
+          }
+
+          li.slick-active button:before {
+            color: #87ceeb;
           }
         }
       }

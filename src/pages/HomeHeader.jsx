@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Slider from "react-slick";
 import "./HomeHeader.scss";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const AllPages = () => {
   const [cryptos, setCryptos] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -20,13 +23,49 @@ const AllPages = () => {
       })
       .then((response) => {
         setCryptos(response.data);
-        setLoading(false); 
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching the crypto data:", error);
-        setLoading(false); 
+        setLoading(false);
       });
   }, []);
+
+  const settings = {
+    dots: false, // Disable dots
+    infinite: true, // Enable infinite scrolling
+    speed: 2000, // Speed of the sliding effect (2 seconds)
+    slidesToShow: 4, // Show 4 items at once
+    slidesToScroll: 1, // Scroll 1 item at a time
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 0, // Keep it continuous without pause
+    cssEase: "linear", // Make the scrolling smooth and continuous
+    arrows: false, // Disable previous/next buttons
+    pauseOnHover: false, // Prevent the slider from stopping on hover
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   return (
     <div className="AllBg">
@@ -43,7 +82,7 @@ const AllPages = () => {
                 <div className="spinner"></div>
               </div>
             ) : (
-              <div className="crypto-list">
+              <Slider {...settings}>
                 {cryptos.map((crypto) => (
                   <div key={crypto.id} className="crypto-item">
                     <img
@@ -62,7 +101,7 @@ const AllPages = () => {
                     </p>
                   </div>
                 ))}
-              </div>
+              </Slider>
             )}
           </div>
         </div>
