@@ -53,7 +53,7 @@ const ViewPage = () => {
 
         // Convert response data to format compatible with the Line chart
         const prices = response.data.prices.map((price) => ({
-          time: new Date(price[0]).toLocaleDateString(), // Simplify date format for better readability
+          time: new Date(price[0]).toLocaleTimeString(), // Show time for 24h data
           value: price[1],
         }));
         setChartData(prices);
@@ -99,7 +99,12 @@ const ViewPage = () => {
       showMarkers: true,
     },
     xAxis: {
-      tickCount: 5,
+      tickCount: timeframe === "24h" ? 6 : 5, // Adjust tick count based on timeframe
+      tickInterval: timeframe === "24h" ? 3600 * 1000 : undefined, // Adjust tick interval for 24h timeframe
+      label: {
+        autoHide: true,
+        autoRotate: true,
+      },
     },
   };
 
