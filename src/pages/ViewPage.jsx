@@ -12,6 +12,7 @@ const ViewPage = () => {
   const [chartData, setChartData] = useState([]);
   const [timeframe, setTimeframe] = useState("24h");
 
+  // Fetch cryptocurrency details
   useEffect(() => {
     axios
       .get(`https://api.coingecko.com/api/v3/coins/${id}`)
@@ -23,6 +24,7 @@ const ViewPage = () => {
       });
   }, [id]);
 
+  // Fetch chart data whenever id, timeframe, or currency changes
   useEffect(() => {
     const fetchChartData = async () => {
       let days;
@@ -47,9 +49,11 @@ const ViewPage = () => {
         const response = await axios.get(
           `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency.toLowerCase()}&days=${days}`
         );
+        console.log(response.data); // Log data to check its structure
 
+        // Convert response data to format compatible with the Line chart
         const prices = response.data.prices.map((price) => ({
-          time: new Date(price[0]).toLocaleString(),
+          time: new Date(price[0]).toLocaleDateString(), // Simplify date format for better readability
           value: price[1],
         }));
         setChartData(prices);
@@ -59,7 +63,7 @@ const ViewPage = () => {
     };
 
     fetchChartData();
-  }, [id, timeframe, currency]);
+  }, [id, timeframe, currency]); // Dependencies to trigger effect
 
   if (!crypto) return <div>Loading...</div>;
 
@@ -69,7 +73,6 @@ const ViewPage = () => {
     UZS: "so'm",
   };
 
-  // Define the config object here
   const config = {
     data: chartData,
     height: 400,
@@ -93,6 +96,10 @@ const ViewPage = () => {
     tooltip: {
       showCrosshairs: true,
       shared: true,
+      showMarkers: true,
+    },
+    xAxis: {
+      tickCount: 5,
     },
   };
 
@@ -113,11 +120,16 @@ const ViewPage = () => {
         </p>
         <p className="crypto-price">
           <strong>Current Price:</strong> {currencySymbols[currency]}
-          {crypto.market_data?.current_price?.[currency.toLowerCase()]?.toLocaleString() || "Data not available"}
+          {crypto.market_data?.current_price?.[
+            currency.toLowerCase()
+          ]?.toLocaleString() || "Data not available"}
         </p>
         <p className="crypto-market-cap">
           <strong>Market Cap:</strong> {currencySymbols[currency]}
-          {(crypto.market_data?.market_cap?.[currency.toLowerCase()] / 1_000_000)?.toLocaleString() || "Data not available"}M
+          {(
+            crypto.market_data?.market_cap?.[currency.toLowerCase()] / 1_000_000
+          )?.toLocaleString() || "Data not available"}
+          M
         </p>
       </div>
       <div className="crypto-chart">

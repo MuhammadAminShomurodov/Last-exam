@@ -1,3 +1,5 @@
+/* Currancy.scss */
+
 .Currancy {
   .currancy-text {
     h2 {
@@ -16,7 +18,7 @@
       font-size: 16px;
       font-weight: 400;
       line-height: 16px;
-      letter-spacing: 0.15000000596046448px;
+      letter-spacing: 0.15px;
       color: #ffffffb2;
       background: none;
       border: 1px solid #ffffff3b;
@@ -48,7 +50,7 @@
           font-size: 14px;
           font-weight: 700;
           line-height: 24px;
-          letter-spacing: 0.15000000596046448px;
+          letter-spacing: 0.15px;
           text-align: left;
           color: #000000;
           padding-top: 20px;
@@ -83,7 +85,7 @@
                 font-size: 22px;
                 font-weight: 400;
                 line-height: 31.46px;
-                letter-spacing: 0.15000000596046448px;
+                letter-spacing: 0.15px;
                 text-align: left;
                 color: #ffffff;
               }
@@ -92,7 +94,7 @@
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 20.02px;
-                letter-spacing: 0.15000000596046448px;
+                letter-spacing: 0.15px;
                 text-align: left;
                 color: #a9a9a9;
               }
@@ -103,7 +105,7 @@
               font-size: 14px;
               font-weight: 400;
               line-height: 20.02px;
-              letter-spacing: 0.15000000596046448px;
+              letter-spacing: 0.15px;
               color: #ffffff;
             }
 
@@ -112,7 +114,7 @@
               font-size: 14px;
               font-weight: 400;
               line-height: 20.02px;
-              letter-spacing: 0.15000000596046448px;
+              letter-spacing: 0.15px;
               color: #ffffff;
             }
 
@@ -121,8 +123,7 @@
               font-size: 14px;
               font-weight: 500;
               line-height: 20.02px;
-              letter-spacing: 0.15000000596046448px;
-
+              letter-spacing: 0.15px;
               color: #4caf50;
               .change-icon {
                 margin-right: 5px;
@@ -134,7 +135,7 @@
               font-size: 14px;
               font-weight: 500;
               line-height: 20.02px;
-              letter-spacing: 0.15000000596046448px;
+              letter-spacing: 0.15px;
               color: #f44336;
               .change-icon {
                 margin-right: 5px;
@@ -218,5 +219,19 @@
         color: #000;
       }
     }
+  }
+
+  /* Error message styling */
+  .error-message {
+    color: #d9534f; /* Red color for errors */
+    background-color: #f9dcdc; /* Light red background */
+    border: 1px solid #d9534f;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
   }
 }
